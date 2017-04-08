@@ -1,0 +1,23 @@
+body {
+  background-color: #263238;
+  margin: 0px 0px 0px 0px;
+}
+.menu {
+  background-color: #37474F;
+  padding: 20px 0px 20px 0px;
+  height: 120px;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-icon{
+  border: 0px;
+  background-color: transparent;
+  font-size: 100px !important;
+  color: #b2ebf2;
+  font-weight: lighter;
+  -webkit-transition: background-color .3s ease;
+  -moz-transition: background-color .3s ease;
+  -o-transition: background-color .3s ease;
+  transition: background-color .3s ease;
+}
