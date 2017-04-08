@@ -6,8 +6,8 @@ var presentationStorage = (function () {
         this.slides = [];
     }
 
-    function Slide (img, audio){
-        this.img = img;
+    function Slide (page, audio){
+        this.page = page;
         this.audio = audio;
     }
 
@@ -31,13 +31,13 @@ var presentationStorage = (function () {
         presentation.description = description;
     }
 
-    function addSlide(canvas){
-        var slide = new Slide(canvas);
+    function addSlide(page){
+        var slide = new Slide(page);
         this.slides.push(slide);
     }
 
-    function getSlideCanvas(index){
-        return this.slides.canvas;
+    function getSlide(index){
+        return this.slides.page;
     }
 
     function moveSlides(from, to){
