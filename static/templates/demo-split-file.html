@@ -1,0 +1,39 @@
+<html>
+
+<head>
+</head>
+<!--
+  Created using jsbin.com
+  Source can be edited via http://jsbin.com/pdfjs-helloworld-v2/8598/edit
+-->
+<style>
+    canvas {
+        border: 1px solid black;
+    }
+</style>
+
+
+<body>
+
+    <div class="content">
+
+    </div>
+    <!-- <canvas id="the-canvas"></canvas> -->
+    <input id='pdf' type='file' />
+
+    <!-- Use latest PDF.js build from Github-->
+    <script type="text/javascript" src="https://rawgithub.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
+    <script type="text/javascript" src="../js/split-file.js"></script>
+    <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        //
+        // Disable workers to avoid yet another cross-origin issue (workers need the URL of
+        // the script to be loaded, and dynamically loading a cross-origin script does
+        // not work)
+        //
+    </script>
+
+</body>
+
+</html>
