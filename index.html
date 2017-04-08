@@ -11,16 +11,6 @@
   <script type="text/javascript" src="static/js/split-file.js"></script>
   <script type="text/javascript" src="static/js/lib/sortable.js"></script>
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-  <style>
-     [draggable] {
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        user-select: none;
-        -khtml-user-drag: element;
-        -webkit-user-drag: element;
-      }
-  </style>
 
   <script>
     tinymce.init({
@@ -57,22 +47,18 @@
         <button class="btn-menu flaticon-add"><p class="sublabel">Add new slide</p></button>
         <button class="btn-menu flaticon-arrows"><p class="sublabel">Download</p></button>
         <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
-        <div class="thumbnail" >
+        <div class="thumbnail">
+          <div style="opacity: 1.0 !important;">
             <div class="arrows">
               <button class="btn-thumb flaticon-left-arrow"></button>
             </div>
-            <div style="display:inline-block;">
-              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
+            <div class="thumbnail-carousel" style="display:inline-block;">
+
             </div>
             <div class="arrows">
               <button class="btn-thumb flaticon-right-arrow"></button>
             </div>
+          </div>
         </div>
         <div style="margin-top: 30px;">
           <img src="static/images/default.jpg"/>
@@ -102,5 +88,5 @@
       </div>
     </div>
   </div>
-   
+
 </body>

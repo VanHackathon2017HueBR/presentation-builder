@@ -58,7 +58,8 @@ function renderPage(pdf, pageNumber) {
 
 function addCanvas(index) {
     var canvas = document.createElement('canvas');
+    canvas.className = "image-thumbnail";
     canvas.id = "page-" + index;
-    $("div.content").append(canvas);
+    $("div.thumbnail-carousel").append(canvas);
     return canvas;
 }
