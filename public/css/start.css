@@ -1,0 +1,30 @@
+body {
+  background-image: url('../img/dreamstime_xxl_82899017_edited.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px 0px 0px 0px;
+}
+
+.blue-content{
+  padding-left: 0px !important;
+  height: 100%;
+  background-color: #37474f;
+  opacity: 0.95;
+}
+
+.title{
+  padding-top: 300px;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+}
+
+.sub-title{
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+}
