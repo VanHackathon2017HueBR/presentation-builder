@@ -20,11 +20,8 @@ body {
   border: 2px dashed #e0f7fa;
 }
 
-.modal-dialog {
+.modal-lg {
   width: 800px;
-}
-
-.modal-body{
   height: 600px;
   overflow-y: auto;
 }
@@ -97,6 +94,17 @@ img, canvas {
   opacity: 0.4;
 }
 
+.btn-upload {
+  position:absolute;
+  z-index:2;top:0;
+  left:0;
+  filter: alpha(opacity=0);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity:0;
+  background-color:transparent;
+  color:transparent;
+}
+
 @media (max-width: 583px) {
   .menu {
     background-color: #37474F;
@@ -109,3 +117,4 @@ img, canvas {
     height: 470px;
   }
 }
+
