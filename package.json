@@ -1,0 +1,19 @@
+{
+    "name": "presentation-builder",
+    "version": "1.0.0",
+    "description": "",
+    "main": "split-file.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VanHackathon2017HueBR/presentation-builder.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/VanHackathon2017HueBR/presentation-builder/issues"
+    },
+    "homepage": "https://github.com/VanHackathon2017HueBR/presentation-builder#readme"
+}
