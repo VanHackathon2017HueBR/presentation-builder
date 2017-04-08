@@ -1,14 +1,15 @@
 $(function(){
 
-    $(".flaticon-add").click(function(){
-        new NewSlide().add();
-    });
+    var newPdfUpload = document.getElementById('new-pdf');
 
+    newPdfUpload.onchange = function(ev) {
+        new NewSlide().add();
+    }
     
 });
 
 function NewSlide(){
     this.add = function(){
-        console.log("click");
+        upload('new-pdf');
     }
 }
