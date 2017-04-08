@@ -11,7 +11,9 @@ body {
 }
 
 .thumbnail{
-
+  background-color: #37474f;
+  opacity: 0.2;
+  height: 130px;
 }
 
 .btn-icon{
@@ -39,7 +41,7 @@ body {
     height: 300px;
   }
 
-@media (max-width: 300px) {
+@media (max-width: 400px) {
   .menu {
     background-color: #37474F;
     height: 470px;
