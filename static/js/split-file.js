@@ -23,7 +23,7 @@ pdf.onchange = function(ev) {
 
 function renderPage(pdf, pageNumber) {
     pdf.getPage(pageNumber).then(function(page) {
-        var scale = 0.5;
+        var scale = 0.2;
         var viewport = page.getViewport(scale);
         //
         // Prepare canvas using PDF page dimensions
@@ -42,6 +42,10 @@ function renderPage(pdf, pageNumber) {
         task.promise.then(function() {
             canvas.toDataURL('image/jpeg')
                 //console.log(canvas.toDataURL('image/jpeg'));
+        });
+
+        Sortable({
+            els: 'canvas'
         });
     });
 }
