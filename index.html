@@ -7,6 +7,21 @@
   <link rel="stylesheet" type="text/css" href="static/css/main.css">
   <link href="static/font/flaticon.css" rel="stylesheet">
   <script src="static/js/tinymce.min.js"></script>
+  <script type="text/javascript" src="https://rawgithub.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
+  <script type="text/javascript" src="static/js/split-file.js"></script>
+  <script type="text/javascript" src="static/js/lib/sortable.js"></script>
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+  <style>
+     [draggable] {
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -khtml-user-drag: element;
+        -webkit-user-drag: element;
+      }
+  </style>
+
   <script>
     tinymce.init({
       selector: 'textarea',
@@ -33,6 +48,9 @@
   </script>
 </header>
 <body>
+  <div>
+        <input id='pdf' type='file' />
+    </div>
   <div class="content">
     <div class="col-xs-12">
       <div class="menu">
@@ -44,13 +62,13 @@
               <button class="btn-thumb flaticon-left-arrow"></button>
             </div>
             <div style="display:inline-block;">
-              <img class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <img class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <img class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <img class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <img class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <img class="image-thumbnail" src="static/images/image-thumb.jpg"/>
-              <img class="image-thumbnail" src="static/images/image-thumb.jpg"/>
+              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
+              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
+              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
+              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
+              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
+              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
+              <canvas class="image-thumbnail" src="static/images/image-thumb.jpg"/>
             </div>
             <div class="arrows">
               <button class="btn-thumb flaticon-right-arrow"></button>
@@ -84,4 +102,5 @@
       </div>
     </div>
   </div>
+   
 </body>

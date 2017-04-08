@@ -64,7 +64,7 @@ body {
   transition: background-color .3s ease;
 }
 
-img {
+img, canvas {
     max-width: 100%;
     height: auto;
 }
