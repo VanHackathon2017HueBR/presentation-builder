@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+.thumbnail{
+
+}
+
 .btn-icon{
   border: 0px;
   background-color: transparent;
@@ -29,7 +33,7 @@ body {
   text-transform: uppercase;
 }
 
-@media (max-width: 463px) {
+@media (max-width: 583px) {
   .menu {
     background-color: #37474F;
     height: 300px;
