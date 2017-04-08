@@ -10,22 +10,54 @@ body {
   text-align: center;
 }
 
+.image-thumbnail{
+  max-width: 100px;
+  height: auto;
+  margin: 20px 5px 0px 5px;
+}
+
 .thumbnail{
   background-color: #37474f;
   opacity: 0.2;
-  height: 130px;
+  height: 100%;
+  padding-bottom: 20px;
+  padding-top: 10px;
 }
 
-.btn-icon{
+.btn-menu{
+  margin: 0px 40px 0px 40px;
+  font-size: 100px;
   border: 0px;
   background-color: transparent;
-  font-size: 100px !important;
   color: #b2ebf2;
-  font-weight: lighter;
   -webkit-transition: background-color .3s ease;
   -moz-transition: background-color .3s ease;
   -o-transition: background-color .3s ease;
   transition: background-color .3s ease;
+}
+
+.arrows{
+  vertical-align: bottom;
+  display:inline-block;
+}
+
+.btn-thumb{
+  height: 100%;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 30px;
+  border: 0px;
+  background-color: transparent;
+  color: #b2ebf2;
+  -webkit-transition: background-color .3s ease;
+  -moz-transition: background-color .3s ease;
+  -o-transition: background-color .3s ease;
+  transition: background-color .3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .sublabel{
