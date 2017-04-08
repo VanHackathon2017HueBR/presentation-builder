@@ -5,7 +5,7 @@ body {
 .menu {
   background-color: #37474F;
   padding: 20px 0px 60px 0px;
-  height: 120px;
+  height: 210px;
   width: 100%;
   text-align: center;
 }
@@ -16,10 +16,19 @@ body {
   margin: 20px 5px 0px 5px;
 }
 
+.modal-dialog {
+  width: 800px;
+}
+
+.modal-body{
+  height: 600px;
+  overflow-y: auto;
+}
+
 .thumbnail{
   background-color: #37474f;
   opacity: 0.2;
-  height: 100%;
+  border: 0px;
   padding-bottom: 20px;
   padding-top: 10px;
 }
