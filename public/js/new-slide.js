@@ -5,7 +5,7 @@ $(function(){
     newPdfUpload.onchange = function(ev) {
         new NewSlide().add();
     }
-    
+
 });
 
 function NewSlide(){
