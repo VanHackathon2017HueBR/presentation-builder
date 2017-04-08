@@ -33,6 +33,10 @@
 
             // this/e.target is the source node.
             this.classList.add(movingClass);
+            [].forEach.call(sortables, function(col) {
+                col.classList.add('droppable');
+            });
+            this.classList.remove('droppable');
 
             options.onDragStart && options.onDragStart(e);
         }
@@ -43,7 +47,6 @@
             }
 
             e.dataTransfer.dropEffect = 'move';
-
 
             options.onDragOver && options.onDragOver(e);
             return false;
@@ -84,7 +87,6 @@
                     }
                 } else {
                     dropIndex = slice(this.parentNode.children).indexOf(this);
-
                     if (this.parentNode === dragEl.parentNode && dropIndex > dragIndex) {
                         dropParent.insertBefore(dragEl, this.nextSibling);
                     } else {
@@ -104,6 +106,7 @@
         function handleDragEnd() {
             [].forEach.call(sortables, function(col) {
                 col.classList.remove(overClass, movingClass);
+                col.classList.remove('droppable');
             });
 
             options.onDragEnd && options.onDragEnd(e);

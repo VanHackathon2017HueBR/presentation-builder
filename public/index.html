@@ -1,12 +1,25 @@
 <header>
   <title>Project Builder</title>
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+<<<<<<< HEAD:public/index.html
   <script src="components/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./components/bootstrap/dist/css/bootstrap.min.css">
   <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/main.css">
   <link href="./fonts/flaticon.css" rel="stylesheet">
   <script src="./js/tinymce.min.js"></script>
+=======
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+  <script src="static/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <link href="static/font/flaticon.css" rel="stylesheet">
+  <script src="static/js/tinymce.min.js"></script>
+  <script type="text/javascript" src="https://rawgithub.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
+  <script type="text/javascript" src="static/js/split-file.js"></script>
+  <script type="text/javascript" src="static/js/lib/sortable.js"></script>
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+>>>>>>> 0c69fdeb2f7900c6eb7b023f744f3571c71adea4:index.html
 
   <script>
     tinymce.init({
@@ -34,16 +47,21 @@
   </script>
 </header>
 <body>
+  <div>
+        <input id='pdf' type='file' />
+    </div>
   <div class="content">
     <div class="col-xs-12">
       <div class="menu">
         <button class="btn-menu flaticon-add"><p class="sublabel">Add new slide</p></button>
         <button class="btn-menu flaticon-arrows"><p class="sublabel">Download</p></button>
         <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
-        <div class="thumbnail" >
+        <div class="thumbnail">
+          <div style="opacity: 1.0 !important;">
             <div class="arrows">
               <button class="btn-thumb flaticon-left-arrow"></button>
             </div>
+<<<<<<< HEAD:public/index.html
             <div style="display:inline-block;">
               <img class="image-thumbnail" src="./img/image-thumb.jpg"/>
               <img class="image-thumbnail" src="./img/image-thumb.jpg"/>
@@ -52,10 +70,15 @@
               <img class="image-thumbnail" src="./img/image-thumb.jpg"/>
               <img class="image-thumbnail" src="./img/image-thumb.jpg"/>
               <img class="image-thumbnail" src="./img/image-thumb.jpg"/>
+=======
+            <div class="thumbnail-carousel" style="display:inline-block;">
+
+>>>>>>> 0c69fdeb2f7900c6eb7b023f744f3571c71adea4:index.html
             </div>
             <div class="arrows">
               <button class="btn-thumb flaticon-right-arrow"></button>
             </div>
+          </div>
         </div>
         <div style="margin-top: 30px;">
           <img src="./img/default.jpg"/>
@@ -85,4 +108,5 @@
       </div>
     </div>
   </div>
+
 </body>
