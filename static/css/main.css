@@ -4,7 +4,7 @@ body {
 }
 .menu {
   background-color: #37474F;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 0px 60px 0px;
   height: 120px;
   width: 100%;
   text-align: center;
@@ -20,4 +20,24 @@ body {
   -moz-transition: background-color .3s ease;
   -o-transition: background-color .3s ease;
   transition: background-color .3s ease;
+}
+
+.sublabel{
+  color: #b2ebf2;
+  font-family: 'Dosis', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 463px) {
+  .menu {
+    background-color: #37474F;
+    height: 300px;
+  }
+
+@media (max-width: 300px) {
+  .menu {
+    background-color: #37474F;
+    height: 470px;
+  }
 }
