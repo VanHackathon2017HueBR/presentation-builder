@@ -1,19 +1,42 @@
 {
-    "name": "presentation-builder",
-    "version": "1.0.0",
-    "description": "",
-    "main": "split-file.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/VanHackathon2017HueBR/presentation-builder.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/VanHackathon2017HueBR/presentation-builder/issues"
-    },
-    "homepage": "https://github.com/VanHackathon2017HueBR/presentation-builder#readme"
+  "name": "presentation-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha --recursive test",
+    "test:coverage": "nyc npm test",
+    "test:unit": "mocha --recursive test/middleware test/models test/routes",
+    "test:integration": "mocha --recursive test/integration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VanHackathon2017HueBR/presentation-builder.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VanHackathon2017HueBR/presentation-builder/issues"
+  },
+  "homepage": "https://github.com/VanHackathon2017HueBR/presentation-builder#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "serve-favicon": "^2.3.0",
+    "morgan": "^1.6.1",
+    "cookie-parser": "^1.3.3",
+    "body-parser": "^1.13.3",
+    "ejs": "^2.3.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "debug": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-livereload": "^3.8.0",
+    "gulp-plumber": "^1.0.0",
+    "mocha": "^3.0.2",
+    "nyc": "^10.0.0",
+    "supertest": "^2.0.0"
+  }
 }
