@@ -29,7 +29,7 @@ Install bower dependencies:
 bower install
 ```
 
-Run the local server and enjou this incredible tool:
+Run the local server and enjoy this incredible tool:
 ```
 npm start
 ```
