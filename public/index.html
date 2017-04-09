@@ -46,7 +46,7 @@
         <div class="col-xs-12">
           <div class="menu">
             <button class="btn-menu flaticon-add" data-toggle="modal" data-target="#add-slide"><p class="sublabel">Add new slide</p></button>
-            <button class="btn-menu flaticon-arrows"><p class="sublabel">Download</p></button>
+            <button class="btn-menu flaticon-arrows" onclick="exportPresentation()"><p class="sublabel">Download</p></button>
             <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
           </div>
         </div>
@@ -151,6 +151,8 @@
   </div>
   <script src="./components/jquery/dist/jquery.min.js"></script>
   <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./components/jszip/dist/jszip.min.js"></script>
+  <script src="./components/file-saver/FileSaver.min.js"></script>
   <script src="./components/tinymce/tinymce.min.js"></script>
   <script>
     tinymce.init({
@@ -168,11 +170,13 @@
       image_advtab: true
       });
   </script>
-  <script type="text/javascript" src="./components/pdfjs-dist/build/pdf.combined.js"></script>
-  <script type="text/javascript" src="./js/split-file.js"></script>
-  <script type="text/javascript" src="./js/new-slide.js"></script>
-  <script type="text/javascript" src="./js/lib/sortable.js"></script>
-  <script type="text/javascript" src="./js/audioRecorder.js"></script>
-  <script type="text/javascript" src="./js/audioManager.js"></script>
+  <script src="./components/pdfjs-dist/build/pdf.combined.js"></script>
+  <script src="./js/presentation-storage.js"></script>
+  <script src="./js/split-file.js"></script>
+  <script src="./js/new-slide.js"></script>
+  <script src="./js/lib/sortable.js"></script>
+  <script src="./js/audioRecorder.js"></script>
+  <script src="./js/audioManager.js"></script>
+  <script src="./js/export.js"></script>
   <script src="./js/control-fields.js"></script>
 </body>

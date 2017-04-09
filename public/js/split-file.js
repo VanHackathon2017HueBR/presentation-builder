@@ -105,6 +105,9 @@ function renderPageCarousel(pdf, pageNumber) {
         var canvas = addCanvas(keyPage);
 
         renderCanvas(canvas, scale, page);
+
+        savePage(keyPage, page);
+
         addMapFile(keyPage, page);
         applySortable();
     });
@@ -130,6 +133,24 @@ function renderCanvas(canvas, scale, page){
     })
     task.promise.then(function() {
         canvas.toDataURL('image/jpeg')
+    });
+}
+
+function savePage(id, page){
+    var viewport = page.getViewport(5); //http://stackoverflow.com/questions/35400722/pdf-image-quality-is-bad-using-pdf-js
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    // Render PDF page into canvas context
+    var task = page.render({
+        canvasContext: context,
+        viewport: viewport
+    })
+    task.promise.then(function() {
+        var dataurl = canvas.toDataURL('image/png');
+        presentationStorage.addSlide(dataurl, id);
     });
 }
 
