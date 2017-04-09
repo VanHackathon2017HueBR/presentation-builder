@@ -14,7 +14,8 @@ $(function() {
     imgUpload.onchange = function (event){
         uploadImg(event);
     }
-//  delete slide button object
+    
+    //  delete slide button object
     var deleteSlideBtn = document.getElementById('deleteBtn');
     
     deleteSlideBtn.onmouseover = function(){
@@ -23,6 +24,11 @@ $(function() {
     deleteSlideBtn.onmouseleave = function(){
         document.getElementById('slide-viewer').classList.remove('delete-opacity');
     }
+
+    $('#preview-modal').on('show.bs.modal', function (e) {
+        preview();
+    })
+
 });
 
 var selectedPage = "";
