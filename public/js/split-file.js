@@ -44,20 +44,25 @@ function upload(selectorUploader){
 
 function uploadImg(e){
     var keyPageImg = nextKeyPage();
-    var canvas = addCanvas(nextKeyPage());
+    var canvas = addCanvas(keyPageImg);
     var ctx = canvas.getContext('2d');
     var img = new Image;
     img.onload = function() {
         canvas.width = img.width;
         canvas.height = img.height;
-        ctx.drawImage(img, 20,20);
+        ctx.drawImage(img, 0,0);
         addMapFile(keyPageImg, img);
     }
     img.src = URL.createObjectURL(e.target.files[0]);
 }
 
-function renderImg(){
-
+function renderImg(img){
+    var canvas = document.getElementById("selected-page");
+    var ctx = canvas.getContext('2d');
+    
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0,0);
 }
 
 function nextKeyPage(){
@@ -66,8 +71,12 @@ function nextKeyPage(){
 
 
 function renderPage(keyPage){
-    var e = mapPages.get(keyPage);
-    renderPageSelected(mapPages.get(keyPage));
+    var element = mapPages.get(keyPage);
+    if(element.pageInfo){
+        renderPageSelected(mapPages.get(keyPage));
+    }else{
+        renderImg(element);
+    }
 }
 
 function renderPageSelected(page){
