@@ -335,3 +335,11 @@ img.img-preview {
   height: 505; 
   width: 357;
 }
+
+.carousel-indicators li{
+  background-color: #333;
+}
+
+.carousel-indicators .active{
+  background-color: #37474F;
+}
