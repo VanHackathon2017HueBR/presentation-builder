@@ -53,8 +53,20 @@ body {
     font-size: 50px;
 }
 
+.icon-dark:disabled {
+    color: #78909c;
+    text-align: left;
+    font-size: 50px;
+}
+
 .icon-green {
     color: #b2ebf2;
+    text-align: left;
+    font-size: 50px;
+}
+
+.icon-green:disabled {
+    color: #78909c ;
     text-align: left;
     font-size: 50px;
 }
