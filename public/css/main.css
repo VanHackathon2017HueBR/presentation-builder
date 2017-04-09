@@ -81,12 +81,6 @@ body {
   border: 2px dashed #e0f7fa;
 }
 
-.modal-lg {
-  width: 800px;
-  height: 600px;
-  overflow-y: auto;
-}
-
 .thumbnail{
   background-color: rgba(55, 71, 79, 0.2);
   border: 0px;
@@ -289,6 +283,11 @@ img, canvas {
   transition: background-color .3s ease;
 }
 
+@media (min-width: 992px){
+  .modal-lg {
+      width: 600px;
+  }
+}
 
 @media (max-width: 558px) {
   .menu {
