@@ -46,8 +46,8 @@
         <div class="col-xs-12">
           <div class="menu">
             <button class="btn-menu flaticon-add" data-toggle="modal" data-target="#add-slide"><p class="sublabel">Add new slide</p></button>
-            <button class="btn-menu flaticon-arrows" onclick="exportPresentation()"><p class="sublabel">Download</p></button>
-            <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
+            <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Edit</p></button>
+            <button class="btn-menu flaticon-play-button" data-toggle="modal" data-target="#preview-modal"><p class="sublabel">Preview</p></button>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@
               <i class="icon-green flaticon-technology" id="micBtn"></i>
             </div>
             <div class="media-shape media-shape-dark" id="audioDiv">
-              <i class="hidden icon-green flaticon-play-button" id="playBtn"></i>
+              <i class="hidden icon-green flaticon-technology-1" id="playBtn"></i>
             </div>
             <div class="media-shape media-shape-dark">
               <i class="hidden icon-green flaticon-tool" id="trashBtn"></i>
@@ -139,6 +139,30 @@
                   <textarea class="form-control" rows="4" cols="50" id="description" name="descritpion" placeholder="Description here!"></textarea>
                 </div>
               </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="preview-modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content modal-lg">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="arrows">
+                  <button class="btn-thumb flaticon-left-arrow"></button>
+                </div>
+                <div  style="display:inline-block;">
+                    <img src="http://www.aprenderexcel.com.br//imagens/noticia/385/2901-1.jpg" />
+                </div>
+                <div class="arrows">
+                  <button class="btn-thumb flaticon-right-arrow"></button>
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
