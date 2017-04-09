@@ -39,11 +39,11 @@ function playAudio(){
 }
 
 function deleteAudio(){
-    var audioToBeDeleted = document.getElementById('#newAudio');
-    audioToBeDeleted.outerHTML = "";
-    delete audioToBeDeleted;
-    playBtn.classList.add('hidden');       
-    trashBtn.classList.add('hidden');      
+    var audioToBeDeleted = document.querySelector('#newAudio');
+    audioToBeDeleted.parentNode.removeChild(audioToBeDeleted);
+
+    playBtn.classList.add('hidden');
+    trashBtn.classList.add('hidden');
 }
 
 window.addEventListener('load', initAudioManager, false);
