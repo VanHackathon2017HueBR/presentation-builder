@@ -2,7 +2,9 @@
 
 Welcome to our awesome presentation maker!!
 
-![https://vanhackathon2017huebr.github.io/presentation-builder/](https://github.com/VanHackathon2017HueBR/presentation-builder/raw/master/docs/screen.png)
+https://github.com/VanHackathon2017HueBR/presentation-builder/raw/master/docs/screen.png
+![](https://github.com/VanHackathon2017HueBR/presentation-builder/raw/master/docs/screen.png)
+
 
 
 Checkout our video: https://github.com/VanHackathon2017HueBR/presentation-builder/blob/master/2017-04-09_18-52-47.mp4
