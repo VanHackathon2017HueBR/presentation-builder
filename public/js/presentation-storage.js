@@ -7,8 +7,9 @@ var presentationStorage = (function () {
         this.slides = [];
     }
 
-    function Slide (page, audio){
+    function Slide (page, id, audio){
         this.page = page;
+        this.id = id;
         this.audio = audio;
     }
 
@@ -16,14 +17,19 @@ var presentationStorage = (function () {
         this.data = data;
         this.duration = duration;
     }
-    
+
     // Create a new default presentation   
     var presentation = new Presentation("My super cool presentation", "An awsome presentation built from PDF slides");
 
     /* Functions to be exported */
-    var addSlide = function (page){
-        var slide = new Slide(page, null);
-        presentation.slides.push(slide);
+    var addSlide = function (page, id, index){
+        var slide = new Slide(page, id, null);
+        if(index){
+            presentation.slides[index] = slide;
+        }
+        else{
+            presentation.slides.push(slide);
+        }
     }
 
     var getSlide = function (index){
@@ -32,6 +38,12 @@ var presentationStorage = (function () {
 
     var deleteSlide = function (index){
         presentation.slides.splice(index, index+1);
+    }
+
+    var getSlideById = function (id){
+        return presentation.slides.filter(function( slide ){
+            return slide.id == id;
+        })[0];
     }
 
     var moveSlides = function (from, to){
@@ -70,17 +82,43 @@ var presentationStorage = (function () {
         presentation.name = name;
         presentation.description = description;
     }
-    
+
+    var getManifest = function(author, list){
+        let manifest = {
+            "author": author,
+            "date": new Date(),
+            "name": presentation.name,
+            "description": presentation.description
+        }
+        manifest.slides = [];
+
+        for (let i = 0; i < presentation.slides.length; i++) {
+            let slide = {};
+            let order = i+1;
+            slide.position = order;
+            slide.image = 'slide' + order + '.png';
+            if(getSlideById(list[i]).audio){
+                slide.audio = 'slide' + order + '.ogg';
+                slide.audioLength = getSlideById(list[i]).audio.duration;
+            }
+            manifest.slides.push(slide);
+        }
+
+        return manifest;
+    }
+
     // Return an object exposed to the public
     return {
         setInfo:            setInfo,
         addSlide:           addSlide,
         getSlide:           getSlide,
+        getSlideById:       getSlideById,
         deleteSlide:        deleteSlide,
         moveSlides:         moveSlides,
         setSlideAudio:      setSlideAudio,
         getSlideAudio:      getSlideAudio,
         clearPresentation:  clearPresentation,
+        getManifest:        getManifest,
         size:               getSize,
         name:               getName,
         description:        getDescription

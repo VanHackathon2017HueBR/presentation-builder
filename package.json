@@ -20,12 +20,12 @@
   },
   "homepage": "https://github.com/VanHackathon2017HueBR/presentation-builder#readme",
   "dependencies": {
-    "express": "^4.13.3",
-    "serve-favicon": "^2.3.0",
-    "morgan": "^1.6.1",
-    "cookie-parser": "^1.3.3",
     "body-parser": "^1.13.3",
-    "ejs": "^2.3.1"
+    "cookie-parser": "^1.3.3",
+    "ejs": "^2.3.1",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
