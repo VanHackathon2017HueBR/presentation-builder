@@ -13,3 +13,8 @@ function changePDF(button){
   $("#success").show();
   $("#div-start").show();
 }
+
+function changeDivs(){
+  $("#landing-page").hide();
+  $("#page-content").show();
+}

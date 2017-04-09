@@ -8,6 +8,7 @@ $(function() {
 
     pdfUpload.onchange = function(ev) {
         upload('pdf');
+        changePDF(document.getElementById('btn-pdf'));
     }
 
 });
@@ -83,7 +84,7 @@ function addCanvas(indexPage) {
     var canvas = document.createElement('canvas');
     canvas.className = "image-thumbnail";
     canvas.id = "page-" + indexCanvas++;
-    canvas.addEventListener('click', function() { 
+    canvas.addEventListener('click', function() {
         renderPage(indexPage);
     }, false);
 
