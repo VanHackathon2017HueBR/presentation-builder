@@ -26,41 +26,59 @@ var presentationStorage = (function () {
 
     var presentation = new Presentation("My super cool presentation", "An awsome presentation built from PDF slides");
 
-    function setInfo(name, description){
+    var setInfo = function (name, description){
         presentation.name = name;
         presentation.description = description;
     }
 
-    function addSlide(page){
+    var addSlide = function (page){
         var slide = new Slide(page);
         this.slides.push(slide);
     }
 
-    function getSlide(index){
+    var getSlide = function (index){
         return this.slides.page;
     }
 
-    function moveSlides(from, to){
+    var deleteSlide = function (index){
+        this.slides.slice(index, index+1);
+    }
+
+    var moveSlides = function (from, to){
         this.slides.splice(to, 0, this.slides.splice(from, 1)[0]);
         return this.slides;
     }
 
-    function setSlideAudio(index, data, duration){
+    var setSlideAudio = function (index, data, duration){
         this.slides[index].audio = new Audio(data, duration);
     }
 
-    function getSlideAudio(index, data){
+    var getSlideAudio = function (index, data){
         return this.slides[index].audio;
+    }
+
+    var clearPresentation = function (){
+        this.slides = [];
+    }
+
+    var getSize = function (){
+        return this.slides.length;
     }
     
     // Return an object exposed to the public
     return {
         setInfo:      setInfo,
         addSlide:       addSlide,
-        getSlideCanvas:       getSlideCanvas,
+        getSlide:       getSlide,
+        deleteSlide: deleteSlide,
         moveSlides:   moveSlides,
         setSlideAudio:    setSlideAudio,
         getSlideAudio:       getSlideAudio,
-        size:   this.slides.lenght
+        clearPresentation: clearPresentation,
+        size:   getSize,
     };
 })();
+
+if (typeof module !== 'undefined' && module.exports != null) {
+    module.exports = presentationStorage;
+}
