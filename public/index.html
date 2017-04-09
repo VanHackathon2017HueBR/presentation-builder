@@ -1,5 +1,7 @@
 <header>
   <title>Project Builder</title>
+  <script src="./components/jquery/dist/jquery.min.js"></script>
+  <script src="./js/control-fields.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./css/start.css">
   <link rel="stylesheet" type="text/css" href="./components/bootstrap/dist/css/bootstrap.min.css">
@@ -9,9 +11,27 @@
   <div class="content">
     <div class="col-xs-6 blue-content">
         <p class="title">The <b>Legendary</b> Slides Builder</p>
-        <p class="sub-title">A new way of making awesome presentations using a PDF as base!</p>
+        <p class="sub-title">A new way of creating awesome presentations from <b>PDF</b> files!</p>
+        <div id="start" style="text-align: center;">
+          </br>
+          <button id="btn-start" class="btn-start" onclick="openRegistration()">START NOW!</button>
+        </div>
     </div>
     <div class="col-xs-6">
+      <div class="login-container" hidden>
+        <form>
+          <div>
+            <label for="title" class="form-field">Title</label>
+            <input class="form-control" type="text" id="title" name="title" placeholder="My legendary presentation"/>
+            <label for="description" class="form-field">Description</label>
+            <textarea class="form-control" rows="4" cols="50" id="description" name="descritpion" placeholder="You can put your awesome presentation description here"></textarea>
+            <div style="text-align: center;">
+              </br>
+              <button id="btn-continue" class="btn-start" href="/index.html">CREATE PROJECT</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </body>
