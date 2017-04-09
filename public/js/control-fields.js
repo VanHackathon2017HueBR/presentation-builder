@@ -8,7 +8,6 @@ function getFile(){
 }
 
 function changePDF(button){
-  $("#upload-file-info").html($(button).val());
   $("#file").hide();
   $("#success").show();
   $("#div-start").show();
