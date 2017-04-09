@@ -38,12 +38,31 @@ function playAudio(){
     document.querySelector('#newAudio').play();
 }
 
-function deleteAudio(){
+function refreshAudio(){
     var audioToBeDeleted = document.querySelector('#newAudio');
-    audioToBeDeleted.parentNode.removeChild(audioToBeDeleted);
+    if(audioToBeDeleted)
+        audioToBeDeleted.parentNode.removeChild(audioToBeDeleted);
 
     playBtn.disabled = true;
     trashBtn.disabled = true;
+}
+
+function deleteAudio(){
+    refreshAudio();
+    presentationStorage.getSlideById(selectedPage).audio = null;
+}
+
+function refreshAudioUi(){
+    refreshAudio();
+    var currentPage = presentationStorage.getSlideById(selectedPage);
+    if(currentPage.audio){
+        var audio = document.createElement('audio');
+        audio.setAttribute('id', 'newAudio');
+        audio.src = currentPage.audio.data;
+        audioDiv.appendChild(audio);
+        playBtn.disabled = false;
+        trashBtn.disabled = false;
+    }
 }
 
 window.addEventListener('load', initAudioManager, false);

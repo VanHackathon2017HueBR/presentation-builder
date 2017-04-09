@@ -19,6 +19,12 @@ function configMediaRecorder(stream){
         audio.src = audioURL;
         audioDiv.appendChild(audio);
 
+        if(mediaRecorder.beginTime < mediaRecorder.endTime){
+            var duration = mediaRecorder.endTime - mediaRecorder.beginTime;
+            duration = duration / 1000;
+        }
+        presentationStorage.setSlideAudio(selectedPage, audioURL, duration);
+
         chunks = [];
     }
 }
@@ -41,11 +47,13 @@ function getAudioDevice(){
 
 function startRecording(){
     mediaRecorder.start();
+    mediaRecorder.beginTime = new Date().getTime();
     console.log(mediaRecorder.state);
 }
 
 function stopRecording(){
     mediaRecorder.stop();
+    mediaRecorder.endTime = new Date().getTime();
     console.log(mediaRecorder.state);
 }
 
