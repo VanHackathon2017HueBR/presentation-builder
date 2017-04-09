@@ -25,6 +25,9 @@ body {
   text-align: center;
 }
 
+.delete-opacity{
+  opacity: 0.4;
+}
 .media-components {
   margin-top: 30px;
 }
@@ -224,6 +227,21 @@ img, canvas {
   color: #ffffff;
   background-color: #00838f;
   box-shadow: 0 2px 0 0 #006064;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 1.0;
+}
+
+.btn-start:disabled {
+  font-family: 'Dosis', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #78909c;
+  box-shadow: 0 2px 0 0 #78909c;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;

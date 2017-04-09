@@ -1,6 +1,6 @@
-function openRegistration(){
+function openRegistration(button){
   $('div.login-container').fadeIn(1000).removeClass('hidden');
-  $('#start').hide();
+  button.disabled = true;
 }
 
 function getFile(){

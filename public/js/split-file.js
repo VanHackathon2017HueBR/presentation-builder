@@ -14,7 +14,15 @@ $(function() {
     imgUpload.onchange = function (event){
         uploadImg(event);
     }
-
+//  delete slide button object
+    var deleteSlideBtn = document.getElementById('deleteBtn');
+    
+    deleteSlideBtn.onmouseover = function(){
+        document.getElementById('slide-viewer').classList.add('delete-opacity');
+    }
+    deleteSlideBtn.onmouseleave = function(){
+        document.getElementById('slide-viewer').classList.remove('delete-opacity');
+    }
 });
 
 var selectedPage = "";
@@ -183,3 +191,4 @@ function addCanvas(keyPage) {
 function selectFirstPage(){
     renderPage("page-1");
 }
+
