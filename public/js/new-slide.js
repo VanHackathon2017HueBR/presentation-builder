@@ -1,15 +1,26 @@
 $(function(){
 
-    var newPdfUpload = document.getElementById('new-pdf');
-
-    newPdfUpload.onchange = function(ev) {
-        new NewSlide().add();
-    }
+   // var newImgUpload = document.getElementById('new-img');
+/*
+    newImgUpload.onchange = function(ev) {
+        var slide = new NewSlide();
+        slide.add(ev);
+        slide.closeModal();
+    }*/
 
 });
 
 function NewSlide(){
-    this.add = function(){
-        upload('new-pdf');
+    function add(ev){
+        uploadImg(ev);
+    }
+
+    function closeModal(){
+        $("#add-slide").modal("hide");
+    }
+
+    return {
+        add: add(),
+        closeModal: closeModal()
     }
 }

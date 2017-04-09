@@ -7,6 +7,8 @@
   <link rel="stylesheet" type="text/css" href="./components/bootstrap/dist/css/bootstrap.min.css">
   <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
   <link href="./fonts/flaticon.css" rel="stylesheet">
+  <script type="text/javascript" src="https://rawgithub.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
+  <script type="text/javascript" src="./js/upload-pages.js"></script>
 </header>
 <body>
   <div class="content">
@@ -28,8 +30,8 @@
                 <i class="icon flaticon-correct"></i>
               </div>
               <div id="file">
-                <input type="button" class='btn btn-pdf' href='javascript:;' onclick="getFile()" value="PDF">
-                    <input id='new-pdf' type="file" class="btn-upload" name="file_source" size="40"  onchange='changePDF(this)'>
+                <input id="button-pdf" type="button" class='btn btn-pdf' href='javascript:;' onclick="getFile()" value="PDF">
+                    <input id='new-pdf' type="file" class="btn-upload" name="file_source" size="40"  >
                 </input>
               </div>
               <span class='label label-info' id="upload-file-info"></span>

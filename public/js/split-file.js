@@ -1,18 +1,44 @@
 
+var indexCanvas = 1;
+var mapPages = new Map();
+
 $(function() {
 
     PDFJS.disableWorker = true;
 
     // Asynchronous download PDF as an ArrayBuffer
-    var pdfUpload = document.getElementById('pdf');
-
-    pdfUpload.onchange = function(ev) {
-        upload('pdf');
+    var newImgUpload = document.getElementById('new-img');
+     newImgUpload.onchange = function(e) {
+        uploadImg(e);
     }
+
+    buildPages();
+    renderPageCarousel();
 
 });
 
-var indexCanvas = 1;
+function retrievePagesSessionStorage(){
+    var retrievedObject = sessionStorage.getItem('pages');
+    mapPages = new Map(JSON.parse(retrievedObject))
+}
+
+function buildPages(){
+    var pdfData = sessionStorage.getItem('pdf-file');
+    pdfData = pdfData.replace("data:application/pdf;base64,", "")
+    PDFJS.getDocument({data: pdfData}).then(function(pdf) {
+        if (pdf.numPages) {
+            for (var index = 1; index <= pdf.numPages; index++) {
+                addPages(pdf, index);
+            }
+        }
+    }, function(error) {
+        console.log(error);
+    });
+}
+
+function addMapFile(keyPage, page){
+    mapPages.set(keyPage, page);
+}
 
 function upload(selectorUploader){
     if (file = document.getElementById(selectorUploader).files[0]) {
@@ -32,34 +58,50 @@ function upload(selectorUploader){
     }
 }
 
-function renderPage(pageNumber){
-    PDFJS.getDocument(fileReader.result).then(function(pdf) {
-        renderPageSelected(pdf, pageNumber);
-    }, function(error) {
-        console.log(error);
-    });
+function renderPage(keyPage){
+    renderPageSelected(mapPages.get(keyPage));
 }
 
-function renderPageSelected(pdf, pageNumber){
-     pdf.getPage(pageNumber).then(function(page) {
-        var scale = 0.6;
-
-        var canvas = document.getElementById("selected-page");
-        renderCanvas(canvas, scale, page);
-    });
+function renderPageSelected(page){
+    var scale = 0.6;
+    var canvas = document.getElementById("selected-page");
+    renderCanvas(canvas, scale, page);
 }
 
-function renderPageCarousel(pdf, pageNumber) {
+/*function renderPageCarousel(pdf, pageNumber) {
     pdf.getPage(pageNumber).then(function(page) {
         var scale = 0.2;
+        var keyPage = nextKeyPage();
+        var canvas = addCanvas(keyPage);
 
-        var canvas = addCanvas(pageNumber);
+        addMapFile(keyPage, page);
         renderCanvas(canvas, scale, page);
 
         Sortable({
             els: 'canvas.image-thumbnail'
         });
     });
+}
+*/
+
+function renderPageCarousel() {
+    if(mapPages){
+      mapPages.forEach(function(page, keyPage){
+         var scale = 0.2;
+         var keyPage = nextKeyPage();
+         var canvas = addCanvas(keyPage);
+
+         renderCanvas(canvas, scale, page);
+      });
+    }
+
+   Sortable({
+        els: 'canvas.image-thumbnail'
+    });
+}
+
+function nextKeyPage(){
+    return "page-" + indexCanvas++;
 }
 
 function renderCanvas(canvas, scale, page){
@@ -79,12 +121,28 @@ function renderCanvas(canvas, scale, page){
     });
 }
 
-function addCanvas(indexPage) {
+function uploadImg(e){
+    var canvas = addCanvas(nextKeyPage());
+    var ctx = canvas.getContext('2d');
+    var img = new Image;
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 20,20);
+        //alert('the image is drawn');
+    }
+    img.src = URL.createObjectURL(e.target.files[0]);
+}
+
+
+function addCanvas(keyPage) {
     var canvas = document.createElement('canvas');
+
     canvas.className = "image-thumbnail";
-    canvas.id = "page-" + indexCanvas++;
+    canvas.id = keyPage;
+    
     canvas.addEventListener('click', function() { 
-        renderPage(indexPage);
+        renderPage(keyPage);
     }, false);
 
     $("div.thumbnail-carousel").append(canvas);
