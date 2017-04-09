@@ -9,7 +9,13 @@ $(function(){
 });
 
 function NewSlide(){
+   var numItems = $('.image-thumbnail').length;
+   if (numItems < 20){
     this.add = function(){
-        upload('new-pdf');
+      upload('new-pdf');
     }
+  }
+  else{
+    $("#div-error").show();
+  }
 }
