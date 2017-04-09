@@ -1,6 +1,9 @@
-# presentation-builder
+# Legendary slides builder
 
-Welcome to our awsome presentation creator!!
+Welcome to our awesome presentation maker!!
+
+![](https://media0.giphy.com/media/l3q2zVr6cu95nF6O4/giphy.gif)
+
 
 
 To run the application locally you need to have the following tools installed:
