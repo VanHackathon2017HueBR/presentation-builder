@@ -1,17 +1,191 @@
 <header>
   <title>Project Builder</title>
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="./css/start.css">
+
   <link rel="stylesheet" type="text/css" href="./components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <link href="./fonts/flaticon.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/start.css">
+
+  <script src="./components/jquery/dist/jquery.min.js"></script>
   <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./js/tinymce.min.js"></script>
+  <script type="text/javascript" src="./js/audioRecorder.js"></script>
+  <script type="text/javascript" src="./js/audioManager.js"></script>  
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      height: 500,
+      theme: 'modern',
+      plugins: [
+      'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      'searchreplace wordcount visualblocks visualchars code fullscreen',
+      'insertdatetime media nonbreaking save table contextmenu directionality',
+      'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+      ],
+      toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+      toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+      image_advtab: true,
+      templates: [
+      { title: 'Test template 1', content: 'Test 1' },
+      { title: 'Test template 2', content: 'Test 2' }
+      ],
+      content_css: [
+      'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+      'https://www.tinymce.com/css/codepen.min.css'
+      ]
+      });
+  </script>
 </header>
 <body>
   <div class="content">
-    <div class="col-xs-6 blue-content">
-        <p class="title">The <b>Legendary</b> Slides Builder</p>
-        <p class="sub-title">A new way of making awesome presentations using a PDF as base!</p>
+    <div id="landing-page">
+      <div class="col-xs-6 blue-content">
+          <p class="title">The <b>Legendary</b> Slides Builder</p>
+          <p class="sub-title">A new way of creating awesome presentations from <b>PDF</b> files!</p>
+          <div id="start" style="text-align: center;">
+            </br>
+            <button id="btn-start" class="btn-start" onclick="openRegistration()">START NOW!</button>
+          </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="login-container" hidden>
+          <form>
+            <div style="text-align: center;">
+              <label for="pdf" class="form-field">Please, load your awesome pdf file here</label>
+              <div style="text-align: center;">
+                <div id="success" style="display: none;">
+                  <i class="icon flaticon-correct"></i>
+                </div>
+                <div id="file">
+                  <input type="button" id="btn-pdf" class='btn btn-pdf' href='javascript:;' onclick="getFile()" value="PDF">
+                      <input id='pdf' type="file" class="btn-upload" name="file_source" size="40">
+                  </input>
+                </div>
+                <span class='label label-info' id="upload-file-info"></span>
+                </br>
+              </div>
+            </div>
+          </form>
+          <div id="div-start" style="display: none; text-align: center;">
+            <button id="btn-continue" class="btn-start" type="button" onclick="changeDivs()">CREATE PROJECT</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-6">
+    <div id="page-content" style="display: none;">
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="menu">
+            <button class="btn-menu flaticon-add" data-toggle="modal" data-target="#add-slide"><p class="sublabel">Add new slide</p></button>
+            <button class="btn-menu flaticon-arrows"><p class="sublabel">Download</p></button>
+            <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
+          </div>
+        </div>
+      </div>  
+
+      <div class="row">
+        <div class="col-xs-12"> 
+          <div class="menu-thumb">
+            <div class="thumbnail">
+              <div style="opacity: 1.0 !important;">
+                <div class="arrows">
+                  <button class="btn-thumb flaticon-left-arrow"></button>
+                </div>
+                <div class="thumbnail-carousel" style="display:inline-block;">
+                </div>
+                <div class="arrows">
+                  <button class="btn-thumb flaticon-right-arrow"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-xs-offset-4 col-xs-4">          
+          <div class="slide-view"> 
+            <canvas id="selected-page" src="./img/default.jpg"/>
+          </div>
+        </div>
+
+        <div class="col-xs-1">
+          <div class="media-components">
+            <div class="media-shape media-shape-dark" id="micShape">
+              <i class="icon-green flaticon-technology" id="micBtn"></i>
+            </div>
+            <div class="media-shape media-shape-dark" id="audioDiv">
+              <i class="hidden icon-green flaticon-play-button" id="playBtn"></i>
+            </div>
+            <div class="media-shape media-shape-dark">
+              <i class="hidden icon-green flaticon-tool" id="trashBtn"></i>
+            </div>                    
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="add-slide" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div>
+                  <label for="new-pdf">Add more pages from PDF here</label>
+                  <div style="position:relative;">
+                    <a class='btn btn-primary' href='javascript:;'>
+                      Choose PDF File
+                      <input id='new-pdf' type="file" class="btn-upload" name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    &nbsp;
+                    <span class='label label-info' id="upload-file-info"></span>
+                    <div id="div-error" style="display: none;">
+                      </br>
+                      <p class="error">Sorry, it's not possible to upload more slides! Only 20 pages allowed.</p>
+                      <p class="error">But we have good news! You can sign the premium package to have unlimited slides.</p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="configuration-modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content modal-lg">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div>
+                  <label for="title">Title:</label>
+                  <input class="form-control" type="text" id="title" name="title" placeholder="Insert your title here"/>
+                  <label for="description">Description:</label>
+                  <textarea class="form-control" rows="4" cols="50" id="description" name="descritpion" placeholder="Description here!"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
+  <script type="text/javascript" src="https://rawgithub.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
+  <script type="text/javascript" src="./js/split-file.js"></script>
+  <script type="text/javascript" src="./js/new-slide.js"></script>
+  <script type="text/javascript" src="./js/lib/sortable.js"></script>
+  <script type="text/javascript" src="./js/audioRecorder.js"></script>
+  <script src="./js/control-fields.js"></script>
 </body>

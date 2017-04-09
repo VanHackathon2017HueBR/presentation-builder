@@ -7,8 +7,7 @@
     "start": "node ./bin/www",
     "test": "mocha --recursive test",
     "test:coverage": "nyc npm test",
-    "test:unit": "mocha --recursive test/middleware test/models test/routes",
-    "test:integration": "mocha --recursive test/integration"
+    "test:unit": "mocha --recursive test/presentation"
   },
   "repository": {
     "type": "git",
