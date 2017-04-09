@@ -23,7 +23,7 @@ function configMediaRecorder(stream){
             var duration = mediaRecorder.endTime - mediaRecorder.beginTime;
             duration = duration / 1000;
         }
-        presentationStorage.setSlideAudio(selectedPage, blob, duration);
+        presentationStorage.setSlideAudio(selectedPage, blob, audioURL, duration);
 
         chunks = [];
     }

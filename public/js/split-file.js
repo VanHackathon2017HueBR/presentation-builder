@@ -14,6 +14,19 @@ $(function() {
     imgUpload.onchange = function (event){
         uploadImg(event);
     }
+    //delete slide button object
+    var deleteSlideBtn = document.getElementById('deleteBtn');
+    
+    deleteSlideBtn.onmouseover = function(){
+        document.getElementById('slide-viewer').classList.add('delete-opacity');
+    }
+    deleteSlideBtn.onmouseleave = function(){
+        document.getElementById('slide-viewer').classList.remove('delete-opacity');
+    }
+
+    $('#preview-modal').on('show.bs.modal', function (e) {
+        preview();
+    })
 
 });
 
@@ -56,11 +69,23 @@ function uploadImg(e){
           canvas.width = img.width;
           canvas.height = img.height;
           ctx.drawImage(img, 0,0);
+
+            var new_canvas = document.createElement('canvas');
+            var context = new_canvas.getContext('2d');
+            new_canvas.width = img.width;
+            new_canvas.height = img.height;
+            context.drawImage(img, 0,0);
+
+            var dataurl = new_canvas.toDataURL('image/png');
+            presentationStorage.addSlide(dataurl, keyPageImg);
+
           addMapFile(keyPageImg, img);
           applySortable();
           closeModal();
       }
-      img.src = URL.createObjectURL(e.target.files[0]);
+        
+        img.src = URL.createObjectURL(e.target.files[0]);
+
     }
     else{
       $("#div-error").show();
@@ -183,3 +208,4 @@ function addCanvas(keyPage) {
 function selectFirstPage(){
     renderPage("page-1");
 }
+
