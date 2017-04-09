@@ -15,7 +15,7 @@ function configMediaRecorder(stream){
         var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
         var audioURL = window.URL.createObjectURL(blob);
 
-        audio.setAttribute('controls', '');
+        audio.setAttribute('id', 'newAudio');
         audio.src = audioURL;
         audioDiv.appendChild(audio);
 
