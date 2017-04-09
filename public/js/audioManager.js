@@ -54,6 +54,15 @@ function deleteAudio(){
 
 function refreshAudioUi(){
     refreshAudio();
+    var currentPage = presentationStorage.getSlideById(selectedPage);
+    if(currentPage.audio){
+        var audio = document.createElement('audio');
+        audio.setAttribute('id', 'newAudio');
+        audio.src = currentPage.audio.data;
+        audioDiv.appendChild(audio);
+        playBtn.disabled = false;
+        trashBtn.disabled = false;
+    }
 }
 
 window.addEventListener('load', initAudioManager, false);

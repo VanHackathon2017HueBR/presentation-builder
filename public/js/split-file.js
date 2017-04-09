@@ -171,9 +171,9 @@ function addCanvas(keyPage) {
     canvas.className = "image-thumbnail";
     canvas.id = keyPage;
 
-    canvas.addEventListener('click', function() {
-        refreshAudioUi();
+    canvas.addEventListener('click', function() {     
         renderPage(keyPage);
+        refreshAudioUi();
     }, false);
 
     $("div.thumbnail-carousel").append(canvas);
