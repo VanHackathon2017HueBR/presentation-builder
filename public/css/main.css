@@ -265,6 +265,12 @@ img, canvas {
     width: 100%;
     text-align: center;
   }
+  .blue-content{
+    padding-left: 0px !important;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(55, 71, 79, 0.9);
+  }
 }
 
 @media (max-width: 368px) {
@@ -272,11 +278,16 @@ img, canvas {
     background-color: #37474F;
     height: 420px;
   }
-
   .menu-thumb {
     padding: 0px 0px 60px 0px;
     height: 470px;
     width: 100%;
     text-align: center;
+  }
+  .blue-content{
+    padding-left: 0px !important;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(55, 71, 79, 0.9);
   }
 }
