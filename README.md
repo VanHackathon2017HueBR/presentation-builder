@@ -2,9 +2,8 @@
 
 Welcome to our awsome presentation creator!!
 
-Running the project locally:
 
-You need to have the following tools installed:
+To run the application locally you need to have the following tools installed:
 * Nodejs
 * NPM
 * Bower
