@@ -14,7 +14,7 @@ $(function() {
     imgUpload.onchange = function (event){
         uploadImg(event);
     }
-//  delete slide button object
+    //delete slide button object
     var deleteSlideBtn = document.getElementById('deleteBtn');
     
     deleteSlideBtn.onmouseover = function(){
