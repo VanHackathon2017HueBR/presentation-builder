@@ -7,9 +7,9 @@ function initAudioManager(){
     playBtn  = document.querySelector('#playBtn');
     trashBtn = document.querySelector('#trashBtn');
     
-    micBtn.onclick  = toggleRecording;
-    playBtn.onclick = playAudio; 
-
+    micBtn.onclick   = toggleRecording;
+    playBtn.onclick  = playAudio; 
+    trashBtn.onclick = deleteAudio; 
 }
 
 function toggleRecording(){
@@ -37,4 +37,13 @@ function toggleRecording(){
 function playAudio(){
     document.querySelector('#newAudio').play();
 }
+
+function deleteAudio(){
+    var audioToBeDeleted = document.getElementById('#newAudio');
+    audioToBeDeleted.outerHTML = "";
+    delete audioToBeDeleted;
+    playBtn.classList.add('hidden');       
+    trashBtn.classList.add('hidden');      
+}
+
 window.addEventListener('load', initAudioManager, false);
