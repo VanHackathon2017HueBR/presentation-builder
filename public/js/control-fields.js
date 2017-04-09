@@ -4,12 +4,16 @@ function openRegistration(){
 }
 
 function getFile(){
-  $('#new-pdf').click();
+  $('#pdf').click();
 }
 
 function changePDF(button){
-  $("#upload-file-info").html($(button).val());
   $("#file").hide();
   $("#success").show();
   $("#div-start").show();
+}
+
+function changeDivs(){
+  $("#landing-page").hide();
+  $("#page-content").show();
 }
