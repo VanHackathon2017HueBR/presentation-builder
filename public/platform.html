@@ -2,20 +2,14 @@
   <title>Project Builder</title>
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 
-  <script src="./components/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./components/bootstrap/dist/css/bootstrap.min.css">
-  <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/main.css">
   <link href="./fonts/flaticon.css" rel="stylesheet">
-  <script src="./js/tinymce.min.js"></script>
-  <script type="text/javascript" src="https://rawgithub.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
-  <script type="text/javascript" src="./js/split-file.js"></script>
-  <script type="text/javascript" src="./js/new-slide.js"></script>
-  <script type="text/javascript" src="./js/lib/sortable.js"></script>
-  <script type="text/javascript" src="./js/audioRecorder.js"></script>
-  <script src="./js/control-fields.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/start.css">
 
+  <script src="./components/jquery/dist/jquery.min.js"></script>
+  <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./js/tinymce.min.js"></script>
   <script>
     tinymce.init({
       selector: 'textarea',
@@ -54,7 +48,7 @@
       </div>
       <div class="col-xs-6">
         <div class="login-container" hidden>
-          <form action="changeDivs()">
+          <form>
             <div style="text-align: center;">
               <label for="pdf" class="form-field">Please, load your awesome pdf file here</label>
               <div style="text-align: center;">
@@ -68,12 +62,12 @@
                 </div>
                 <span class='label label-info' id="upload-file-info"></span>
                 </br>
-                <div id="div-start" style="display: none;">
-                  <button id="btn-continue" class="btn-start" type="submit">CREATE PROJECT</button>
-                </div>
               </div>
             </div>
           </form>
+          <div id="div-start" style="display: none;">
+            <button id="btn-continue" class="btn-start" type="button" onclick="changeDivs()">CREATE PROJECT</button>
+          </div>
         </div>
       </div>
     </div>
@@ -153,5 +147,10 @@
       </div>
     </div>
   </div>
-
+  <script type="text/javascript" src="https://rawgithub.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
+  <script type="text/javascript" src="./js/split-file.js"></script>
+  <script type="text/javascript" src="./js/new-slide.js"></script>
+  <script type="text/javascript" src="./js/lib/sortable.js"></script>
+  <script type="text/javascript" src="./js/audioRecorder.js"></script>
+  <script src="./js/control-fields.js"></script>
 </body>

@@ -4,7 +4,7 @@ function openRegistration(){
 }
 
 function getFile(){
-  $('#new-pdf').click();
+  $('#pdf').click();
 }
 
 function changePDF(button){

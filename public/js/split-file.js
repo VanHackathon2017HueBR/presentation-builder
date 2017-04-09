@@ -8,7 +8,7 @@ $(function() {
 
     pdfUpload.onchange = function(ev) {
         upload('pdf');
-        changePDF(document.getElementById('btn-pdf'));
+        changePDF(document.getElementById('pdf'));
     }
 
 });
