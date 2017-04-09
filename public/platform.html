@@ -13,6 +13,7 @@
   <script type="text/javascript" src="./js/new-slide.js"></script>
   <script type="text/javascript" src="./js/lib/sortable.js"></script>
   <script type="text/javascript" src="./js/audioRecorder.js"></script>
+    <script type="text/javascript" src="./js/audioManager.js"></script>
 
   <script>
     tinymce.init({
@@ -44,28 +45,60 @@
         <input id='pdf' type='file' />
     </div>
   <div class="content">
-    <div class="col-xs-12">
-      <div class="menu">
-        <button class="btn-menu flaticon-add" data-toggle="modal" data-target="#add-slide"><p class="sublabel">Add new slide</p></button>
-        <button class="btn-menu flaticon-arrows"><p class="sublabel">Download</p></button>
-        <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
-        <div class="thumbnail">
-          <div style="opacity: 1.0 !important;">
-            <div class="arrows">
-              <button class="btn-thumb flaticon-left-arrow"></button>
-            </div>
-            <div class="thumbnail-carousel" style="display:inline-block;">
-            </div>
-            <div class="arrows">
-              <button class="btn-thumb flaticon-right-arrow"></button>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top: 30px;">
-          <canvas id="selected-page" src="./img/default.jpg"/>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="menu">
+          <button class="btn-menu flaticon-add" data-toggle="modal" data-target="#add-slide"><p class="sublabel">Add new slide</p></button>
+          <button class="btn-menu flaticon-arrows"><p class="sublabel">Download</p></button>
+          <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-xs-12"> 
+        <div class="menu-thumb">
+          <div class="thumbnail">
+            <div style="opacity: 1.0 !important;">
+              <div class="arrows">
+                <button class="btn-thumb flaticon-left-arrow"></button>
+              </div>
+              <div class="thumbnail-carousel" style="display:inline-block;">
+              </div>
+              <div class="arrows">
+                <button class="btn-thumb flaticon-right-arrow"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>          
+    
+    <div class="row">
+
+      <div class="col-xs-offset-4 col-xs-4">          
+        <div class="slide-view"> 
+          <canvas id="selected-page" src="./img/default.jpg"/>
+        </div>
+      </div>
+
+      <div class="col-xs-1">
+        <div class="media-components">
+          <div class="media-shape media-shape-dark" id="micShape">
+            <i class="icon-green flaticon-technology" id="micBtn"></i>
+          </div>
+          <div class="media-shape media-shape-dark" id="audioDiv">
+            <i class="hidden icon-green flaticon-play-button" id="playBtn"></i>
+          </div>
+          <div class="media-shape media-shape-dark">
+            <i class="hidden icon-green flaticon-tool" id="trashBtn"></i>
+          </div>                    
+        </div>
+      </div>  
+
+    </div>
+
     <div class="modal fade" id="add-slide" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
