@@ -5,10 +5,14 @@ $(function() {
 
     // Asynchronous download PDF as an ArrayBuffer
     var pdfUpload = document.getElementById('pdf');
-
-    pdfUpload.onchange = function(ev) {
+    pdfUpload.onchange = function(event) {
         upload('pdf');
         changePDF(document.getElementById('pdf'));
+    }
+
+    var imgUpload = documento.getElementById('new-img');
+    imgUpload.onchange = function (event){
+        uploadImg(event);
     }
 
 });
@@ -31,6 +35,19 @@ function upload(selectorUploader){
         };
         fileReader.readAsArrayBuffer(file);
     }
+}
+
+function uploadImg(e){
+    var canvas = addCanvas(nextKeyPage());
+    var ctx = canvas.getContext('2d');
+    var img = new Image;
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 20,20);
+        //alert('the image is drawn');
+    }
+    img.src = URL.createObjectURL(e.target.files[0]);
 }
 
 function renderPage(pageNumber){
