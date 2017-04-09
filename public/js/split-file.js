@@ -16,10 +16,19 @@ $(function() {
     }
     //delete slide button object
     var deleteSlideBtn = document.getElementById('deleteBtn');
-    
+    deleteSlideBtn.onclick = function(){
+        var idPage = '#' + selectedPage;
+        var pageToBeDeleted = $(idPage);
+        var idNextPage = pageToBeDeleted.prev().id;
+        pageToBeDeleted.remove();
+       // renderPage(idNextPage);
+       // refreshAudioUi();
+    }
+
     deleteSlideBtn.onmouseover = function(){
         document.getElementById('slide-viewer').classList.add('delete-opacity');
     }
+
     deleteSlideBtn.onmouseleave = function(){
         document.getElementById('slide-viewer').classList.remove('delete-opacity');
     }
@@ -96,7 +105,6 @@ function renderImg(img){
 function nextKeyPage(){
     return "page-" + indexCanvas++;
 }
-
 
 function renderPage(keyPage){
     var element = mapPages.get(keyPage);
