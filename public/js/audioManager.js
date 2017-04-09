@@ -29,6 +29,7 @@ function toggleRecording(){
         micShape.classList.add('media-shape-green');
         micShape.classList.remove('media-shape-dark');
         isRecording = true;
+        refreshAudio();
         startRecording();
     }
 
@@ -58,7 +59,7 @@ function refreshAudioUi(){
     if(currentPage.audio){
         var audio = document.createElement('audio');
         audio.setAttribute('id', 'newAudio');
-        audio.src = currentPage.audio.data;
+        audio.src = currentPage.audio.url;
         audioDiv.appendChild(audio);
         playBtn.disabled = false;
         trashBtn.disabled = false;

@@ -13,8 +13,9 @@ var presentationStorage = (function () {
         this.audio = audio;
     }
 
-    function Audio(data, duration){
+    function Audio(data, url, duration){
         this.data = data;
+        this.url = url;
         this.duration = duration;
     }
 
@@ -53,8 +54,8 @@ var presentationStorage = (function () {
         return presentation.slides;
     }
 
-    var setSlideAudio = function (id, data, duration){
-        getSlideById(id).audio = new Audio(data, duration);
+    var setSlideAudio = function (id, data, url, duration){
+        getSlideById(id).audio = new Audio(data, url, duration);
     }
 
     var getSlideAudio = function (index){
