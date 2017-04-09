@@ -1,6 +1,6 @@
 $(function(){
 
-    var newPdfUpload = document.getElementById('new-pdf');
+    //var newPdfUpload = document.getElementById('new-pdf');
 
     // newPdfUpload.onchange = function(ev) {
     //     new NewSlide().add();

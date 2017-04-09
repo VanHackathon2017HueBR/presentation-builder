@@ -59,8 +59,8 @@ function initClientAudio(){
     audioDiv  = document.querySelector('#audioDiv');
     getAudioDevice();
 
-    recordBtn.onclick = startRecording;
-    stopBtn.onclick = stopRecording;    
+    //recordBtn.onclick = startRecording;
+    //stopBtn.onclick = stopRecording;    
 }
 
 window.addEventListener('load', initClientAudio, false);
