@@ -16,7 +16,7 @@ var presentationStorage = (function () {
         this.data = data;
         this.duration = duration;
     }
-    
+
     // Create a new default presentation   
     var presentation = new Presentation("My super cool presentation", "An awsome presentation built from PDF slides");
 
@@ -70,7 +70,55 @@ var presentationStorage = (function () {
         presentation.name = name;
         presentation.description = description;
     }
+
+    var getManifest = function(author){
+        let manifest = {
+            "author": author,
+            "date": new Date(),
+            "name": presentation.name,
+            "description": presentation.description
+        }
+        manifest.slides = [];
+
+        for (let i = 0; i < presentation.slides.length; i++) {
+            let slide = {};
+            let order = i+1;
+            slide.position = order;
+            slide.image = 'slide' + order + '.png';
+            if(presentation.slides[i].audio){
+                slide.audio = 'slide' + order + '.ogg';
+                slide.audioLength = presentation.slides[i].audio.duration;
+            }
+            manifest.slides.push(slide);
+        }
+
+        return manifest;
+    }
     
+    var exportPresentation = function(author){
+        var manifest = getManifest("author");
+        var zip = new JSZip();
+        zip.file("manifest.json", JSON.Stringify(manifest));
+
+        /*for (let i = 0; i < presentation.slides.length; i++) {
+            let slide = presentation.slides[i];
+            let order = i+1;
+            let image = 'slide' + order + '.png';
+            zip.file(image, slide.image);
+            if(slide.audio){
+                let audio = 'slide' + order + '.ogg';
+                zip.file(audio, slide.audio.data);
+            }
+        }*/
+
+        zip.generateAsync({type:"blob"})
+        .then(function(content) {
+            // see FileSaver.js
+            saveAs(content, "example.zip");
+        });
+
+    }
+
     // Return an object exposed to the public
     return {
         setInfo:            setInfo,
@@ -81,6 +129,7 @@ var presentationStorage = (function () {
         setSlideAudio:      setSlideAudio,
         getSlideAudio:      getSlideAudio,
         clearPresentation:  clearPresentation,
+        getManifest:        getManifest,
         size:               getSize,
         name:               getName,
         description:        getDescription
