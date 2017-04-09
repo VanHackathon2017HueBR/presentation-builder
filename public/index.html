@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="./css/start.css">
   <link rel="stylesheet" type="text/css" href="./components/bootstrap/dist/css/bootstrap.min.css">
   <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link href="./fonts/flaticon.css" rel="stylesheet">
 </header>
 <body>
   <div class="content">
@@ -19,15 +20,23 @@
     </div>
     <div class="col-xs-6">
       <div class="login-container" hidden>
-        <form>
-          <div>
-            <label for="title" class="form-field">Title</label>
-            <input class="form-control" type="text" id="title" name="title" placeholder="My legendary presentation"/>
-            <label for="description" class="form-field">Description</label>
-            <textarea class="form-control" rows="4" cols="50" id="description" name="descritpion" placeholder="You can put your awesome presentation description here"></textarea>
+        <form action="platform.html">
+          <div style="text-align: center;">
+            <label for="new-pdf" class="form-field">Please, load your awesome pdf file here</label>
             <div style="text-align: center;">
+              <div id="success" style="display: none;">
+                <i class="icon flaticon-correct"></i>
+              </div>
+              <div id="file">
+                <input type="button" class='btn btn-pdf' href='javascript:;' onclick="getFile()" value="PDF">
+                    <input id='new-pdf' type="file" class="btn-upload" name="file_source" size="40"  onchange='changePDF(this)'>
+                </input>
+              </div>
+              <span class='label label-info' id="upload-file-info"></span>
               </br>
-              <button id="btn-continue" class="btn-start" href="/index.html">CREATE PROJECT</button>
+              <div id="div-start" style="display: none;">
+                <button id="btn-continue" class="btn-start" type="submit">CREATE PROJECT</button>
+              </div>
             </div>
           </div>
         </form>

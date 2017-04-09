@@ -54,6 +54,42 @@ body {
 
 .form-field{
   font-family: 'Dosis', sans-serif;
-  font-size: 18px;
-  padding-top: 10px;
+  font-size: 22px;
+  padding-top: 5px;
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+.btn-pdf {
+  font-family: 'Dosis', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #00838f;
+  box-shadow: 0 2px 0 0 #006064;
+  border: none;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+}
+
+.btn-upload {
+  z-index:2;
+  top:0;
+  left:0;
+  filter: alpha(opacity=0);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity:0;
+  background-color:transparent;
+  color:transparent;
+}
+
+.icon{
+  font-size: 80px;
+  background-color: transparent;
+  color: #b2ebf2;
+  -webkit-transition: background-color .3s ease;
+  -moz-transition: background-color .3s ease;
+  -o-transition: background-color .3s ease;
+  transition: background-color .3s ease;
 }
