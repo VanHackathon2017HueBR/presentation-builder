@@ -1,40 +1,9 @@
 <header>
   <title>Project Builder</title>
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-
   <link rel="stylesheet" type="text/css" href="./components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="./css/main.css">
   <link href="./fonts/flaticon.css" rel="stylesheet">
-
-  <script src="./components/jquery/dist/jquery.min.js"></script>
-  <script src="./components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="./js/tinymce.min.js"></script>
-  <script type="text/javascript" src="./js/audioRecorder.js"></script>
-  <script type="text/javascript" src="./js/audioManager.js"></script>  
-  <script>
-    tinymce.init({
-      selector: 'textarea',
-      height: 500,
-      theme: 'modern',
-      plugins: [
-      'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-      'searchreplace wordcount visualblocks visualchars code fullscreen',
-      'insertdatetime media nonbreaking save table contextmenu directionality',
-      'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
-      ],
-      toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-      toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
-      image_advtab: true,
-      templates: [
-      { title: 'Test template 1', content: 'Test 1' },
-      { title: 'Test template 2', content: 'Test 2' }
-      ],
-      content_css: [
-      'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-      'https://www.tinymce.com/css/codepen.min.css'
-      ]
-      });
-  </script>
 </header>
 <body>
   <div class="content">
@@ -61,7 +30,6 @@
                       <input id='pdf' type="file" class="btn-upload" name="file_source" size="40">
                   </input>
                 </div>
-                <span class='label label-info' id="upload-file-info"></span>
                 </br>
               </div>
             </div>
@@ -73,7 +41,7 @@
       </div>
     </div>
     <div id="page-content" style="display: none;">
-      
+
       <div class="row">
         <div class="col-xs-12">
           <div class="menu">
@@ -82,10 +50,10 @@
             <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
           </div>
         </div>
-      </div>  
+      </div>
 
       <div class="row">
-        <div class="col-xs-12"> 
+        <div class="col-xs-12">
           <div class="menu-thumb">
             <div class="thumbnail">
               <div style="opacity: 1.0 !important;">
@@ -105,8 +73,8 @@
 
       <div class="row">
 
-        <div class="col-xs-offset-4 col-xs-4">          
-          <div class="slide-view"> 
+        <div class="col-xs-offset-4 col-xs-4">
+          <div class="slide-view">
             <canvas id="selected-page" src="./img/default.jpg"/>
           </div>
         </div>
@@ -121,7 +89,7 @@
             </div>
             <div class="media-shape media-shape-dark">
               <i class="hidden icon-green flaticon-tool" id="trashBtn"></i>
-            </div>                    
+            </div>
           </div>
         </div>
       </div>
@@ -178,7 +146,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
   <script src="./components/jquery/dist/jquery.min.js"></script>
@@ -213,5 +181,6 @@
   <script type="text/javascript" src="./js/new-slide.js"></script>
   <script type="text/javascript" src="./js/lib/sortable.js"></script>
   <script type="text/javascript" src="./js/audioRecorder.js"></script>
+  <script type="text/javascript" src="./js/audioManager.js"></script>
   <script src="./js/control-fields.js"></script>
 </body>
