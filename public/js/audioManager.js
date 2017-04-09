@@ -7,7 +7,8 @@ function initAudioManager(){
     playBtn  = document.querySelector('#playBtn');
     trashBtn = document.querySelector('#trashBtn');
     
-    micBtn.onclick = toggleRecording;
+    micBtn.onclick  = toggleRecording;
+    playBtn.onclick = playAudio; 
 
 }
 
@@ -31,5 +32,9 @@ function toggleRecording(){
         startRecording();
     }
 
+}
+
+function playAudio(){
+    document.querySelector('#newAudio').play();
 }
 window.addEventListener('load', initAudioManager, false);
