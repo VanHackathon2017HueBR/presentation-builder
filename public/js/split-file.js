@@ -172,6 +172,7 @@ function addCanvas(keyPage) {
     canvas.id = keyPage;
 
     canvas.addEventListener('click', function() {
+        refreshAudioUi();
         renderPage(keyPage);
     }, false);
 

@@ -38,12 +38,22 @@ function playAudio(){
     document.querySelector('#newAudio').play();
 }
 
-function deleteAudio(){
+function refreshAudio(){
     var audioToBeDeleted = document.querySelector('#newAudio');
-    audioToBeDeleted.parentNode.removeChild(audioToBeDeleted);
+    if(audioToBeDeleted)
+        audioToBeDeleted.parentNode.removeChild(audioToBeDeleted);
 
     playBtn.disabled = true;
     trashBtn.disabled = true;
+}
+
+function deleteAudio(){
+    refreshAudio();
+    presentationStorage.getSlideById(selectedPage).audio = null;
+}
+
+function refreshAudioUi(){
+    refreshAudio();
 }
 
 window.addEventListener('load', initAudioManager, false);
