@@ -27,12 +27,7 @@ Install bower dependencies:
 bower install
 ```
 
-Run the local server with gulp and livereload:
+Run the local server and enjou this incredible tool:
 ```
 npm start
-```
-
-Running the tests:
-```
-npm test
 ```

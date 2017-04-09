@@ -4,7 +4,7 @@ function exportPresentation (evt){
     var list = getSlideOrder();
 
     var zip = new JSZip();
-    var manifest = presentationStorage.getManifest("author", list);
+    var manifest = presentationStorage.getManifest($('input#email').val(), list);
     zip.file("manifest.json", JSON.stringify(manifest, null, "\t"));
 
     for (var i = 0; i < list.length; i++) {
@@ -23,6 +23,7 @@ function exportPresentation (evt){
     .then(function(content) {
         saveAs(content, "awesome.zip");
     });
+    
 }
 
 function getSlideOrder(){

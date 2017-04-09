@@ -22,7 +22,7 @@
             <div style="text-align: center;">
               <label for="pdf" class="form-field">Please, load your awesome pdf file here</label>
               <div style="text-align: center;">
-                <div id="success" style="display: none;">
+                <div id="success" style="display: none; margin-bottom: 0px;">
                   <i class="icon flaticon-correct"></i>
                 </div>
                 <div id="file">
@@ -30,7 +30,6 @@
                       <input id='pdf' type="file" class="btn-upload" name="file_source" size="40" accept="application/pdf">
                   </input>
                 </div>
-                </br>
               </div>
             </div>
           </form>
@@ -47,7 +46,7 @@
           <div class="menu">
             <button class="btn-menu flaticon-add" data-toggle="modal" data-target="#add-slide"><p class="sublabel">New page</p></button>
             <button class="btn-menu flaticon-play-button" data-toggle="modal" data-target="#preview-modal"><p class="sublabel">Preview</p></button>
-            <button class="btn-menu flaticon-arrows" onclick="exportPresentation()"><p class="sublabel">Download</p></button>
+            <button class="btn-menu flaticon-arrows" data-toggle="modal" data-target="#email-modal"><p class="sublabel">Download</p></button>
             <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Details</p></button>
           </div>
         </div>
@@ -191,6 +190,27 @@
         </div>
       </div>
 
+      <div class="modal fade" id="email-modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div>
+                  <label for="email">Your Email</label>
+                  <input required id='email' type="email" class="form-field" name="email" size="60" >
+                </div>
+                <div style="text-align: center;">
+                  <button id="btn-email" class="btn-start" onclick="exportPresentation()" type="button">EXPORT PROJECT!</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
   <script src="./components/jquery/dist/jquery.min.js"></script>
@@ -214,11 +234,11 @@
       image_advtab: true
       });
   </script>
+
   <script src="./components/pdfjs-dist/build/pdf.combined.js"></script>
   <script src="./js/presentation-storage.js"></script>
   <script src="./js/preview.js"></script>
   <script src="./js/split-file.js"></script>
-  <script src="./js/new-slide.js"></script>
   <script src="./js/lib/sortable.js"></script>
   <script src="./js/audioRecorder.js"></script>
   <script src="./js/audioManager.js"></script>
