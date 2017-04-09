@@ -10,15 +10,13 @@ function exportPresentation (evt){
     for (var i = 0; i < list.length; i++) {
         var slide = presentationStorage.getSlideById(list[i]);
         var image = manifest.slides[i].image;
+        var audio = manifest.slides[i].audio;
 
         zip.file(image, slide.page.substr(slide.page.indexOf(',')+1), {base64: true});
 
-                /*
-            if(slide.audio){
-            let audio = 'slide' + order + '.ogg';
+        if(slide.audio){
             zip.file(audio, slide.audio.data);
         }
-        */
     }
 
     zip.generateAsync({type:"blob"})
