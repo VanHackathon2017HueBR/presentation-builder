@@ -16,44 +16,46 @@ var presentationStorage = (function () {
         this.data = data;
         this.duration = duration;
     }
-
+    
+    // Create a new default presentation   
+    var presentation = new Presentation("My super cool presentation", "An awsome presentation built from PDF slides");
 
     /* Functions to be exported */
     var addSlide = function (page){
         var slide = new Slide(page, null);
-        this.slides.push(slide);
+        presentation.slides.push(slide);
     }
 
     var getSlide = function (index){
-        return this.slides[index].page;
+        return presentation.slides[index].page;
     }
 
     var deleteSlide = function (index){
-        this.slides.splice(index, index+1);
+        presentation.slides.splice(index, index+1);
     }
 
     var moveSlides = function (from, to){
-        if(from < 0 || from >= this.slides.length || to < 0 || to >= this.slides.length)
+        if(from < 0 || from >= presentation.slides.length || to < 0 || to >= presentation.slides.length)
             return;
-        this.slides.splice(to, 0, this.slides.splice(from, 1)[0]);
-        return this.slides;
+        presentation.slides.splice(to, 0, presentation.slides.splice(from, 1)[0]);
+        return presentation.slides;
     }
 
     var setSlideAudio = function (index, data, duration){
-        this.slides[index].audio = new Audio(data, duration);
+        presentation.slides[index].audio = new Audio(data, duration);
     }
 
     var getSlideAudio = function (index){
-        return this.slides[index].audio;
+        return presentation.slides[index].audio;
     }
 
     var clearPresentation = function (){
-        this.slides = [];
+        presentation.slides = [];
     }
 
     /* Presentation data */
     var getSize = function (){
-        return this.slides.length;
+        return presentation.slides.length;
     }
 
     var getName = function (){
@@ -68,9 +70,6 @@ var presentationStorage = (function () {
         presentation.name = name;
         presentation.description = description;
     }
-
-    // Create a new default presentation   
-    var presentation = new Presentation("My super cool presentation", "An awsome presentation built from PDF slides");
     
     // Return an object exposed to the public
     return {
