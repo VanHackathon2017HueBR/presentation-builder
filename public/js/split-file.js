@@ -69,11 +69,23 @@ function uploadImg(e){
           canvas.width = img.width;
           canvas.height = img.height;
           ctx.drawImage(img, 0,0);
+
+            var new_canvas = document.createElement('canvas');
+            var context = new_canvas.getContext('2d');
+            new_canvas.width = img.width;
+            new_canvas.height = img.height;
+            context.drawImage(img, 0,0);
+
+            var dataurl = new_canvas.toDataURL('image/png');
+            presentationStorage.addSlide(dataurl, keyPageImg);
+
           addMapFile(keyPageImg, img);
           applySortable();
           closeModal();
       }
-      img.src = URL.createObjectURL(e.target.files[0]);
+        
+        img.src = URL.createObjectURL(e.target.files[0]);
+
     }
     else{
       $("#div-error").show();
