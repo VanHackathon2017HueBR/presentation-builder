@@ -2,6 +2,7 @@ function preview(){
 
     var list = getSlideOrder();
     var indexImg = 0;
+    clear();
 
     list.forEach(function(index) {
         var carousel = document.getElementById("carousel-preview");
@@ -14,6 +15,11 @@ function preview(){
         appendIndicator(indicador);
         indexImg++;
     }, this);
+
+    function clear(){
+        $("#wrapper-slides").children().remove();
+        $("#preview-indicators").children().remove();
+    }
 
     function buildListIndicators(amount){
         var indicators = [];
