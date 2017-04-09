@@ -25,6 +25,9 @@ body {
   text-align: center;
 }
 
+.delete-opacity{
+  opacity: 0.4;
+}
 .media-components {
   margin-top: 30px;
 }
