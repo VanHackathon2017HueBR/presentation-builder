@@ -52,6 +52,7 @@ function uploadImg(e){
         canvas.height = img.height;
         ctx.drawImage(img, 0,0);
         addMapFile(keyPageImg, img);
+        applySortable();
     }
     img.src = URL.createObjectURL(e.target.files[0]);
 }
@@ -59,7 +60,7 @@ function uploadImg(e){
 function renderImg(img){
     var canvas = document.getElementById("selected-page");
     var ctx = canvas.getContext('2d');
-    
+
     canvas.width = img.width;
     canvas.height = img.height;
     ctx.drawImage(img, 0,0);
@@ -93,10 +94,13 @@ function renderPageCarousel(pdf, pageNumber) {
 
         renderCanvas(canvas, scale, page);
         addMapFile(keyPage, page);
+        applySortable();
+    });
+}
 
-        Sortable({
+function applySortable(){
+    Sortable({
             els: 'canvas.image-thumbnail'
-        });
     });
 }
 
