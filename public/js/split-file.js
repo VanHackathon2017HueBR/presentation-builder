@@ -43,19 +43,26 @@ function upload(selectorUploader){
 }
 
 function uploadImg(e){
-    var keyPageImg = nextKeyPage();
-    var canvas = addCanvas(keyPageImg);
-    var ctx = canvas.getContext('2d');
-    var img = new Image;
-    img.onload = function() {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0,0);
-        addMapFile(keyPageImg, img);
-        applySortable();
-        closeModal();
+    var numItems = $('.image-thumbnail').length;
+    if (numItems < 20){
+      var keyPageImg = nextKeyPage();
+      var canvas = addCanvas(keyPageImg);
+      var ctx = canvas.getContext('2d');
+      var img = new Image;
+
+      img.onload = function() {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0,0);
+          addMapFile(keyPageImg, img);
+          applySortable();
+          closeModal();
+      }
+      img.src = URL.createObjectURL(e.target.files[0]);
     }
-    img.src = URL.createObjectURL(e.target.files[0]);
+    else{
+      $("#div-error").show();
+    }
 }
 
 function closeModal(){
@@ -131,8 +138,8 @@ function addCanvas(keyPage) {
 
     canvas.className = "image-thumbnail";
     canvas.id = keyPage;
-    
-    canvas.addEventListener('click', function() { 
+
+    canvas.addEventListener('click', function() {
         renderPage(keyPage);
     }, false);
 
