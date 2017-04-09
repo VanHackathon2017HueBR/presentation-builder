@@ -4,6 +4,7 @@ function exportPresentation (evt){
 
     var zip = new JSZip();
     var manifest = presentationStorage.getManifest("author", list);
+    zip.file("manifest.json", JSON.stringify(manifest, null, "\t"));
 
     for (var i = 0; i < list.length; i++) {
         var slide = presentationStorage.getSlideById(list[i]);

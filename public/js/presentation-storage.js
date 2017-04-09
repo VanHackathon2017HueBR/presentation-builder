@@ -106,30 +106,6 @@ var presentationStorage = (function () {
 
         return manifest;
     }
-    
-    var exportPresentation = function(author){
-        var manifest = getManifest("author");
-        var zip = new JSZip();
-        zip.file("manifest.json", JSON.Stringify(manifest));
-
-        /*for (let i = 0; i < presentation.slides.length; i++) {
-            let slide = presentation.slides[i];
-            let order = i+1;
-            let image = 'slide' + order + '.png';
-            zip.file(image, slide.image);
-            if(slide.audio){
-                let audio = 'slide' + order + '.ogg';
-                zip.file(audio, slide.audio.data);
-            }
-        }*/
-
-        zip.generateAsync({type:"blob"})
-        .then(function(content) {
-            // see FileSaver.js
-            saveAs(content, "example.zip");
-        });
-
-    }
 
     // Return an object exposed to the public
     return {
