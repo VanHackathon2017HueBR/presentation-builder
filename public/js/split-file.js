@@ -10,7 +10,7 @@ $(function() {
         changePDF(document.getElementById('pdf'));
     }
 
-    var imgUpload = documento.getElementById('new-img');
+    var imgUpload = document.getElementById('new-img');
     imgUpload.onchange = function (event){
         uploadImg(event);
     }
@@ -18,6 +18,11 @@ $(function() {
 });
 
 var indexCanvas = 1;
+var mapPages = new Map();
+
+function addMapFile(keyPage, page){
+    mapPages.set(keyPage, page);
+}
 
 function upload(selectorUploader){
     if (file = document.getElementById(selectorUploader).files[0]) {
@@ -38,6 +43,7 @@ function upload(selectorUploader){
 }
 
 function uploadImg(e){
+    var keyPageImg = nextKeyPage();
     var canvas = addCanvas(nextKeyPage());
     var ctx = canvas.getContext('2d');
     var img = new Image;
@@ -45,34 +51,39 @@ function uploadImg(e){
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 20,20);
-        //alert('the image is drawn');
+        addMapFile(keyPageImg, img);
     }
     img.src = URL.createObjectURL(e.target.files[0]);
 }
 
-function renderPage(pageNumber){
-    PDFJS.getDocument(fileReader.result).then(function(pdf) {
-        renderPageSelected(pdf, pageNumber);
-    }, function(error) {
-        console.log(error);
-    });
+function renderImg(){
+
 }
 
-function renderPageSelected(pdf, pageNumber){
-     pdf.getPage(pageNumber).then(function(page) {
-        var scale = 0.6;
+function nextKeyPage(){
+    return "page-" + indexCanvas++;
+}
 
-        var canvas = document.getElementById("selected-page");
-        renderCanvas(canvas, scale, page);
-    });
+
+function renderPage(keyPage){
+    var e = mapPages.get(keyPage);
+    renderPageSelected(mapPages.get(keyPage));
+}
+
+function renderPageSelected(page){
+    var scale = 0.6;
+    var canvas = document.getElementById("selected-page");
+    renderCanvas(canvas, scale, page);
 }
 
 function renderPageCarousel(pdf, pageNumber) {
     pdf.getPage(pageNumber).then(function(page) {
         var scale = 0.2;
+        var keyPage = nextKeyPage();
+        var canvas = addCanvas(keyPage);
 
-        var canvas = addCanvas(pageNumber);
         renderCanvas(canvas, scale, page);
+        addMapFile(keyPage, page);
 
         Sortable({
             els: 'canvas.image-thumbnail'
@@ -97,12 +108,14 @@ function renderCanvas(canvas, scale, page){
     });
 }
 
-function addCanvas(indexPage) {
+function addCanvas(keyPage) {
     var canvas = document.createElement('canvas');
+
     canvas.className = "image-thumbnail";
-    canvas.id = "page-" + indexCanvas++;
-    canvas.addEventListener('click', function() {
-        renderPage(indexPage);
+    canvas.id = keyPage;
+    
+    canvas.addEventListener('click', function() { 
+        renderPage(keyPage);
     }, false);
 
     $("div.thumbnail-carousel").append(canvas);
