@@ -23,6 +23,7 @@ $(function() {
     deleteSlideBtn.onmouseleave = function(){
         document.getElementById('slide-viewer').classList.remove('delete-opacity');
     }
+
 });
 
 var selectedPage = "";
