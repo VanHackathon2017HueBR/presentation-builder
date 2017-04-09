@@ -330,3 +330,8 @@ img, canvas {
     background-color: rgba(55, 71, 79, 0.9);
   }
 }
+
+img.img-preview {
+  height: 505; 
+  width: 357;
+}

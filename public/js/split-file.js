@@ -24,6 +24,10 @@ $(function() {
         document.getElementById('slide-viewer').classList.remove('delete-opacity');
     }
 
+    $('#preview-modal').on('show.bs.modal', function (e) {
+        preview();
+    })
+
 });
 
 var selectedPage = "";

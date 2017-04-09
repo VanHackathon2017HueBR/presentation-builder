@@ -154,22 +154,35 @@
         </div>
       </div>
 
-      <div class="modal fade" id="preview-modal" role="dialog">
+      <div class="modal fade" id="preview-modal" role="dialog">F
         <div class="modal-dialog">
           <div class="modal-content modal-lg">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="arrows">
-                  <button class="btn-thumb flaticon-left-arrow"></button>
+             <div id="carousel-preview" class="" data-ride="carousel">
+                <!-- Indicators -->
+                <ol id="preview-indicators" class="carousel-indicators">
+                  
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div id="wrapper-slides" class="carousel-inner" role="listbox">
+                  
                 </div>
-                <div  style="display:inline-block;">
-                    <img src="http://www.aprenderexcel.com.br//imagens/noticia/385/2901-1.jpg" />
-                </div>
-                <div class="arrows">
-                  <button class="btn-thumb flaticon-right-arrow"></button>
-                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-preview" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-preview" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -203,6 +216,7 @@
   </script>
   <script src="./components/pdfjs-dist/build/pdf.combined.js"></script>
   <script src="./js/presentation-storage.js"></script>
+  <script src="./js/preview.js"></script>
   <script src="./js/split-file.js"></script>
   <script src="./js/new-slide.js"></script>
   <script src="./js/lib/sortable.js"></script>
