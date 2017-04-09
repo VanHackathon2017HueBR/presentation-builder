@@ -151,6 +151,15 @@ img, canvas {
   text-transform: uppercase;
 }
 
+.time-label{
+  color: #78909c;
+  font-family: 'Dosis', sans-serif;
+  padding: 0px 0px 0px 0px;
+  margin: -10px 0px 0px 0px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
 .sortable-moving {
   opacity: 0.4;
 }

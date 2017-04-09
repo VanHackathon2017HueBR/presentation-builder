@@ -27,26 +27,27 @@
 font-style: normal;
 }
 
-
-.flaticon-technology-1:before { content: "\f100"; }
-.flaticon-up-arrow:before { content: "\f101"; }
-.flaticon-correct:before { content: "\f102"; }
-.flaticon-tool:before { content: "\f103"; }
-.flaticon-search-2:before { content: "\f104"; }
-.flaticon-search-1:before { content: "\f105"; }
-.flaticon-technology:before { content: "\f106"; }
-.flaticon-arrows:before { content: "\f107"; }
-.flaticon-settings-1:before { content: "\f108"; }
-.flaticon-play-button:before { content: "\f109"; }
-.flaticon-layout:before { content: "\f10a"; }
-.flaticon-menu:before { content: "\f10b"; }
-.flaticon-cancel-1:before { content: "\f10c"; }
-.flaticon-add:before { content: "\f10d"; }
-.flaticon-settings:before { content: "\f10e"; }
-.flaticon-refresh-2:before { content: "\f10f"; }
-.flaticon-cancel:before { content: "\f110"; }
-.flaticon-gallery:before { content: "\f111"; }
-.flaticon-search:before { content: "\f112"; }
-.flaticon-down-arrow:before { content: "\f113"; }
-.flaticon-left-arrow:before { content: "\f114"; }
-.flaticon-right-arrow:before { content: "\f115"; }
+.flaticon-photo:before { content: "\f100"; }
+.flaticon-multimedia:before { content: "\f101"; }
+.flaticon-technology-1:before { content: "\f102"; }
+.flaticon-up-arrow:before { content: "\f103"; }
+.flaticon-correct:before { content: "\f104"; }
+.flaticon-tool:before { content: "\f105"; }
+.flaticon-search-2:before { content: "\f106"; }
+.flaticon-search-1:before { content: "\f107"; }
+.flaticon-technology:before { content: "\f108"; }
+.flaticon-arrows:before { content: "\f109"; }
+.flaticon-settings-1:before { content: "\f10a"; }
+.flaticon-play-button:before { content: "\f10b"; }
+.flaticon-layout:before { content: "\f10c"; }
+.flaticon-menu:before { content: "\f10d"; }
+.flaticon-cancel-1:before { content: "\f10e"; }
+.flaticon-add:before { content: "\f10f"; }
+.flaticon-settings:before { content: "\f110"; }
+.flaticon-refresh:before { content: "\f111"; }
+.flaticon-cancel:before { content: "\f112"; }
+.flaticon-gallery:before { content: "\f113"; }
+.flaticon-search:before { content: "\f114"; }
+.flaticon-down-arrow:before { content: "\f115"; }
+.flaticon-left-arrow:before { content: "\f116"; }
+.flaticon-right-arrow:before { content: "\f117"; }
