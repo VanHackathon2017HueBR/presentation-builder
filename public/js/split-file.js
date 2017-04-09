@@ -110,7 +110,15 @@ function renderPageCarousel(pdf, pageNumber) {
 
         addMapFile(keyPage, page);
         applySortable();
+        
+        if(pdf.numPages === pageNumber){
+            onRenderLastPageCarousel();
+        }
     });
+}
+
+function onRenderLastPageCarousel(){
+    selectFirstPage();
 }
 
 function applySortable(){
@@ -166,4 +174,8 @@ function addCanvas(keyPage) {
 
     $("div.thumbnail-carousel").append(canvas);
     return canvas;
+}
+
+function selectFirstPage(){
+    renderPage("page-1");
 }
