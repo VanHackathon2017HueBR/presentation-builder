@@ -1,4 +1,5 @@
 function exportPresentation (evt){
+    presentationStorage.setInfo($('input#title').val(),tinyMCE.activeEditor.getContent());
 
     var list = getSlideOrder();
 
@@ -13,7 +14,7 @@ function exportPresentation (evt){
         zip.file(image, slide.page.substr(slide.page.indexOf(',')+1), {base64: true});
 
                 /*
-                if(slide.audio){
+            if(slide.audio){
             let audio = 'slide' + order + '.ogg';
             zip.file(audio, slide.audio.data);
         }
