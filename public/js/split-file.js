@@ -53,8 +53,13 @@ function uploadImg(e){
         ctx.drawImage(img, 0,0);
         addMapFile(keyPageImg, img);
         applySortable();
+        closeModal();
     }
     img.src = URL.createObjectURL(e.target.files[0]);
+}
+
+function closeModal(){
+    $("#add-slide").modal("hide");
 }
 
 function renderImg(img){
