@@ -10,7 +10,9 @@
   <script src="./js/tinymce.min.js"></script>
   <script type="text/javascript" src="https://rawgithub.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
   <script type="text/javascript" src="./js/split-file.js"></script>
+  <script type="text/javascript" src="./js/new-slide.js"></script>
   <script type="text/javascript" src="./js/lib/sortable.js"></script>
+  <script type="text/javascript" src="./js/audioRecorder.js"></script>
 
   <script>
     tinymce.init({
@@ -44,7 +46,7 @@
   <div class="content">
     <div class="col-xs-12">
       <div class="menu">
-        <button class="btn-menu flaticon-add"><p class="sublabel">Add new slide</p></button>
+        <button class="btn-menu flaticon-add" data-toggle="modal" data-target="#add-slide"><p class="sublabel">Add new slide</p></button>
         <button class="btn-menu flaticon-arrows"><p class="sublabel">Download</p></button>
         <button class="btn-menu flaticon-settings" data-toggle="modal" data-target="#configuration-modal"><p class="sublabel">Configure</p></button>
         <div class="thumbnail">
@@ -64,9 +66,33 @@
         </div>
       </div>
     </div>
-    <div class="modal fade" id="configuration-modal" role="dialog">
+    <div class="modal fade" id="add-slide" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div>
+                <label for="new-pdf">Add more pages from PDF here</label>
+                 <div style="position:relative;">
+                  <a class='btn btn-primary' href='javascript:;'>
+                    Choose PDF File
+                    <input id='new-pdf' type="file" class="btn-upload" name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                  </a>
+                  &nbsp;
+                  <span class='label label-info' id="upload-file-info"></span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="configuration-modal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content modal-lg">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>

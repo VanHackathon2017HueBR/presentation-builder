@@ -7,24 +7,30 @@ $(function() {
     var pdfUpload = document.getElementById('pdf');
 
     pdfUpload.onchange = function(ev) {
-        if (file = document.getElementById('pdf').files[0]) {
-            fileReader = new FileReader();
-            fileReader.onload = function(ev) {
-                PDFJS.getDocument(fileReader.result).then(function(pdf) {
-                    if (pdf.numPages) {
-                        for (var index = 1; index <= pdf.numPages; index++) {
-                            renderPageCarousel(pdf, index);
-                        }
-                    }
-                }, function(error) {
-                    console.log(error);
-                });
-            };
-            fileReader.readAsArrayBuffer(file);
-        }
+        upload('pdf');
     }
 
 });
+
+var indexCanvas = 1;
+
+function upload(selectorUploader){
+    if (file = document.getElementById(selectorUploader).files[0]) {
+        fileReader = new FileReader();
+        fileReader.onload = function(ev) {
+            PDFJS.getDocument(fileReader.result).then(function(pdf) {
+                if (pdf.numPages) {
+                    for (var index = 1; index <= pdf.numPages; index++) {
+                        renderPageCarousel(pdf, index);
+                    }
+                }
+            }, function(error) {
+                console.log(error);
+            });
+        };
+        fileReader.readAsArrayBuffer(file);
+    }
+}
 
 function renderPage(pageNumber){
     PDFJS.getDocument(fileReader.result).then(function(pdf) {
@@ -73,12 +79,12 @@ function renderCanvas(canvas, scale, page){
     });
 }
 
-function addCanvas(index) {
+function addCanvas(indexPage) {
     var canvas = document.createElement('canvas');
     canvas.className = "image-thumbnail";
-    canvas.id = "page-" + index;
+    canvas.id = "page-" + indexCanvas++;
     canvas.addEventListener('click', function() { 
-        renderPage(index);
+        renderPage(indexPage);
     }, false);
 
     $("div.thumbnail-carousel").append(canvas);
