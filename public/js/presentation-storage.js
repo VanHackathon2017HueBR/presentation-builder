@@ -53,8 +53,8 @@ var presentationStorage = (function () {
         return presentation.slides;
     }
 
-    var setSlideAudio = function (index, data, duration){
-        presentation.slides[index].audio = new Audio(data, duration);
+    var setSlideAudio = function (id, data, duration){
+        getSlideById(id).audio = new Audio(data, duration);
     }
 
     var getSlideAudio = function (index){

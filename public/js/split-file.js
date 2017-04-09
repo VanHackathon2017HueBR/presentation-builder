@@ -17,6 +17,8 @@ $(function() {
 
 });
 
+var selectedPage = "";
+
 var indexCanvas = 1;
 var mapPages = new Map();
 
@@ -85,6 +87,7 @@ function nextKeyPage(){
 
 function renderPage(keyPage){
     var element = mapPages.get(keyPage);
+    selectedPage = keyPage;
     if(element.pageInfo){
         renderPageSelected(mapPages.get(keyPage));
     }else{
